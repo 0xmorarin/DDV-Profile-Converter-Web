@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>DDV Profile Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="appShell" class="app-shell" aria-live="polite">
+    <section id="idlePanel" class="panel panel-centered">
+      <div class="star">✦</div>
+      <h1>Drop profile.json</h1>
+      <div class="or-text">or</div>
+      <button class="royal-button" data-choose-file>Choose File</button>
+      <p class="local-note">Processed locally in your browser.</p>
+    </section>
+
+    <section id="processingPanel" class="panel panel-centered" hidden>
+      <div class="star">✦</div>
+      <h1>Processing...</h1>
+      <p id="processingFileText" class="secondary-text">Converting profile.json</p>
+      <div class="progress-track"><div class="progress-bar"></div></div>
+      <p class="small-text">Please wait.</p>
+    </section>
+
+    <section id="successPanel" class="panel success-panel" hidden>
+      <div class="success-heading">
+        <div class="star star-small">✦</div>
+        <h1 id="successTitle">DECRYPTED</h1>
+        <p id="successSubtitle" class="secondary-text">Profile decrypted successfully.</p>
+      </div>
+
+      <div class="download-section">
+        <div class="section-label">Downloads</div>
+        <div id="downloadsList" class="download-list"></div>
+        <p id="downloadStatus" class="small-text"></p>
+      </div>
+
+      <div class="metadata">
+        <div class="metadata-group">
+          <div class="metadata-row"><span>Player Name</span><strong id="playerNameValue">—</strong></div>
+          <div class="metadata-row"><span>Player ID</span><strong id="playerIdValue">—</strong></div>
+        </div>
+        <div class="divider"></div>
+        <div class="metadata-group">
+          <div class="metadata-row"><span>Save Version</span><strong id="saveVersionValue">—</strong></div>
+          <div class="metadata-row"><span>Play Time</span><strong id="playTimeValue">—</strong></div>
+        </div>
+        <div class="divider"></div>
+        <div class="metadata-group">
+          <div class="metadata-row"><span>Created</span><strong id="createdValue">—</strong></div>
+          <div class="metadata-row"><span>Last Modified</span><strong id="lastModifiedValue">—</strong></div>
+          <div class="metadata-row"><span>Last Saved On</span><strong id="lastSavedOnValue">—</strong></div>
+        </div>
+      </div>
+
+      <div class="success-actions">
+        <button class="royal-button" data-choose-file>Choose File</button>
+        <p class="small-text">Drop another profile.json to convert.</p>
+      </div>
+    </section>
+
+    <section id="errorPanel" class="panel panel-centered" hidden>
+      <div class="error-icon">!</div>
+      <h1 class="error-title">Conversion failed</h1>
+      <p id="errorMessageText" class="secondary-text error-message">The selected file could not be converted.</p>
+      <button class="royal-button" data-choose-file>Choose File</button>
+      <p class="small-text">Drop another profile.json to try again.</p>
+    </section>
+  </main>
+
+  <input id="fileInput" type="file" accept=".json,application/json,application/octet-stream" hidden>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
