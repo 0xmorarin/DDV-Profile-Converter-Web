@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/roundtrip.mjs"
+    "test": "node tests/roundtrip.mjs && node tests/time-tools.mjs"
   }
 }
